@@ -22,4 +22,3 @@ async function getRandomCocktail() {
       console.log(error);
     }
   }
-gi  
