@@ -1,7 +1,6 @@
 # project-01
 
-## readme-sara-update
-Sara : https://github.com/sasterck
+## Sara : https://github.com/sasterck
 
 ## Pat https://github.com/Pjmeyer95
 
