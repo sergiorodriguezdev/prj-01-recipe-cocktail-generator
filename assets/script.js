@@ -2,6 +2,13 @@ var RECIPE_URL = 'https://api.edamam.com/api/recipes/v2?type=public&app_id=3f79b
 
 // first api for meals BASE URL : GET https://api.edamam.com/api/recipes/
 
+// global variables?
+
+//define the function
+
+var recipeName;
+var(recipeObj []; 
+// use variable object to pull localstrorage on page?
 fetch(RECIPE_URL)
 .then(response => response.json())
 .then(response=> {
@@ -9,4 +16,6 @@ fetch(RECIPE_URL)
     // define variables of what we are pulling from the meal api
 
     var recipeName = response.recipeName;
+
 })
+)
