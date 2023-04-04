@@ -4,18 +4,26 @@ var RECIPE_URL = 'https://api.edamam.com/api/recipes/v2?type=public&app_id=3f79b
 
 // global variables?
 
-//define the function
-
-var recipeName;
-var(recipeObj []; 
+var name;
+var(mealObj []; 
 // use variable object to pull localstrorage on page?
+
+//define the function
+function getrecipeinfo(event) {
+    event.preventDefault();
+    results.setAttribute()// idk what to set this as i am lost here
+     var searchInputEl = $("#search-ingredient-input")
+     var mealName
+
+}
+
 fetch(RECIPE_URL)
 .then(response => response.json())
 .then(response=> {
 
     // define variables of what we are pulling from the meal api
 
-    var recipeName = response.recipeName;
+    var mealName = response.mealName;
 
 })
 )
