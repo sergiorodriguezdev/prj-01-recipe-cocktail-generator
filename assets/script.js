@@ -9,13 +9,13 @@ var(mealObj [];
 // use variable object to pull localstrorage on page?
 
 //define the function
-function getrecipeinfo(event) {
+function getmealinfo(event) {
     event.preventDefault();
     results.setAttribute()// idk what to set this as i am lost here
      var searchInputEl = $("#search-ingredient-input")
-     var mealName
+     var mealName = searchInputEl.val()
 
-}
+
 
 fetch(RECIPE_URL)
 .then(response => response.json())
@@ -24,6 +24,9 @@ fetch(RECIPE_URL)
     // define variables of what we are pulling from the meal api
 
     var mealName = response.mealName;
+    var mealType = response.mealType; //example; american, italian, asian etc
+    va 
 
-})
+}
 )
+}
