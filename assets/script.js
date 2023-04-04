@@ -22,3 +22,24 @@ async function getRandomCocktail() {
       console.log(error);
     }
   }
+
+// search by ingredient
+async function searchCocktailsByIngredient(ingredient) {
+    const apiKey = "1";
+    const endpoint = `https://www.thecocktaildb.com/api/json/v1/${apiKey}/filter.php?i=${ingredient}`;
+    try {
+      const response = await fetch(endpoint);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  searchCocktailsByIngredient("gin").then((data) => {
+    console.log(data);
+  });
+  
+  searchCocktailsByIngredient("vodka").then((data) => {
+    console.log(data);
+  });
+  
