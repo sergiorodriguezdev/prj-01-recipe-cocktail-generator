@@ -6,9 +6,9 @@ var RECIPE_URL = 'https://api.edamam.com/api/recipes/v2?type=public&app_id=3f79b
 // global variables?
 
 var recipeName;
-var recipeObj [];
+var recipeObj = [];
 var cocktailName;
-var cocktailObj []; 
+var cocktailObj = []; 
 // use variable object to pull localstrorage on page?
 
 //define the function for recipe return
