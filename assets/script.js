@@ -1,4 +1,3 @@
-
 var RECIPE_URL = 'https://api.edamam.com/api/recipes/v2?type=public&app_id=3f79b5d7&app_key=81dbb6cafe543467792c934f5e6b64ca&diet=balanced&mealType=&mealType=Breakfast&mealType=Dinner&mealType=Lunch&random=true';
 
 // first api for meals BASE URL : GET https://api.edamam.com/api/recipes/
@@ -6,9 +5,10 @@ var RECIPE_URL = 'https://api.edamam.com/api/recipes/v2?type=public&app_id=3f79b
 // global variables?
 
 var recipeName;
-var recipeObj [];
+var recipeObj = [];
 var cocktailName;
-var cocktailObj []; 
+var cocktailObj = []; 
+
 // use variable object to pull localstrorage on page?
 
 //define the function for recipe return
@@ -231,4 +231,18 @@ async function searchCocktailsByIngredients(ingredients) {
       resultsDiv.appendChild(list);
     }
   }
-  
+
+function saveFavorite( item, type ) {
+  var existing = JSON.parse(localStorage.getItem(LS_FAVORITES));
+
+  if(!existing.length){
+    existing = [];
+  }
+
+  existing.push({
+    type: type,
+    data: item
+  });
+
+  localStorage.setItem(LS_FAVORITES, JSON.stringify(existing));
+}
