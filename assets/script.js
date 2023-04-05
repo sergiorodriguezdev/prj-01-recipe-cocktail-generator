@@ -1,9 +1,13 @@
-
-var api_id = 3f79b5d7
+var mealBreakfast = document.querySelector('#') // still need to add to html with the drop down tag
+var mealLunch = document.querySelector('#')
+var mealDinner = document.querySelector('#')
+var api_id = '3f79b5d7'
+var api_key = '81dbb6cafe543467792c934f5e6b64ca'
 
 var RECIPE_URL = 'https://api.edamam.com/api/recipes/v2?';
 
 // first api for meals BASE URL : GET https://api.edamam.com/api/recipes/
+
 
 // global variables?
 
@@ -15,9 +19,7 @@ var cocktailObj = [];
 
 //define the function for recipe return
 
-function getrecipeinfo(event) {
-    
-
+function getUrl() {
 
 
 fetch(RECIPE_URL)
