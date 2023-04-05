@@ -26,7 +26,7 @@ function getUrl() {
     RECIPE_URL +='&mealType=Breakfast';
   }
   if (mealLunch.value) {
-    RECIPE_URL +='&mealType=Breakfast';
+    RECIPE_URL +='&mealType=Lunch';
   }
   if (mealDinner.value) {
     RECIPE_URL +='&mealType=Dinner';
