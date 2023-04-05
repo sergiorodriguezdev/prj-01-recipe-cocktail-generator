@@ -39,12 +39,57 @@ fetch(RECIPE_URL)
 }
 
 
+var recipes=document.getElementById("recipes-results")
+var cocktails=document.getElementById("cocktails")
 
+var myData = [
+  {
+    name: "Recipe 1"
+  },
+    {
+    name: "Recipe 2"
+  },
+    {
+    name: "Recipe 3"
+  }
+];
+
+loadResults(recipes, myData);
+
+function loadResults(resultsForm, data) {
+
+  if(data=== null)
+  {
+    data= []
+  }
+if(data.length=== 0){
+  //no results found
+}
+for (let index = 0; index < data.length; index++) {
+  var resultsRow = document.createElement("p");
+
+  var labelEl = document.createElement("label");
+
+  resultsRow.append(labelEl);
+
+  var checkboxEl = document.createElement("input");
+  checkboxEl.setAttribute("type", "checkbox");
+
+  labelEl.append(checkboxEl);
+
+  var spanEl = document.createAttribute("span");
+  spanEl.textContent = data[index].name;
+
+  //labelEl.append(spanEl);
+
+  recipes.append(resultsRow);
+}
+}
 
 
 
 // This is used to set/get the list of favorites localStorage item
-const LS_FAVORITES = "Favorites-List";
+var LS_FAVORITES = "Favorites-List";
 
 // Favorites HTML element
 var favoritesListEl = document.getElementById("favorites-list");
@@ -138,6 +183,8 @@ favoritesListEl.addEventListener("click", function(event) {
     }
 });
 
+
+
 // Open modal sample
 var openModalBtn = document.getElementById("openModal");
 openModalBtn.addEventListener("click", function(event) {
@@ -200,8 +247,8 @@ async function searchCocktailsByIngredients(ingredients) {
   searchCocktailsByIngredients(["gin", "vodka", "tequila", "rum", "whiskey", "brandy"]).then((results) => {
     console.log(results);
   });
-  const searchForm = document.querySelector('#search-form');
-  const resultsDiv = document.querySelector('#results');
+  var searchForm = document.querySelector('#search-form');
+  var resultsDiv = document.querySelector('#results');
   
   searchForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -231,6 +278,8 @@ async function searchCocktailsByIngredients(ingredients) {
       resultsDiv.appendChild(list);
     }
   }
+
+
 
 function saveFavorite( item, type ) {
   var existing = JSON.parse(localStorage.getItem(LS_FAVORITES));
