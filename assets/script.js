@@ -22,7 +22,15 @@ var cocktailObj = [];
 function getUrl() {
   RECIPE_URL +='api_id='+ api_id;
   RECIPE_URL +='api_key'+ api_key;
-  if (mealDinner.value)
+  if (mealBreakfast.value) {
+    RECIPE_URL +='&mealType=Breakfast';
+  }
+  if (mealLunch.value) {
+    RECIPE_URL +='&mealType=Breakfast';
+  }
+  if (mealDinner.value) {
+    RECIPE_URL +='&mealType=Dinner';
+  }
 
 
 fetch(RECIPE_URL)
