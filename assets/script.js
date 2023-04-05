@@ -49,8 +49,6 @@ fetch(RECIPE_URL)
 
 }
 
-
-
 // This is used to set/get the list of favorites localStorage item
 const LS_FAVORITES = "Favorites-List";
 
