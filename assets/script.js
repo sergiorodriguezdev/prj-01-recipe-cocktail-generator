@@ -27,10 +27,9 @@ fetch(RECIPE_URL)
 
     // define variables of what we are pulling from the meal api
 
-    var Ingredient = response.Ingredient;
-    var Name = response.Name;
-    var Type = response.Type; //example; american, italian, asian etc
-    var Diet = response.Diet;
+    var cuisineType = response.cuisineType;//example; american, italian, asian etc
+    var mealType = response.mealType; // ex: breakfast, lunch, and dinner
+    var imageSize = response.imageSize; //this way it shows recipe's with images
 
 }
 )
