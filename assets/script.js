@@ -32,25 +32,22 @@ function getUrl() {
     RECIPE_URL +='&mealType=Dinner';
   }
 
-
+function fetchMeal() {
+  var RECIPE_URL = getUrl();
 fetch(RECIPE_URL)
-.then(response => response.json())
-.then(response=> {
-
+.then(function(response)
+{
+  return response.json();
+})
+.then(function (data) {
+  console.log(data);
+});
+}
     // define variables of what we are pulling from the meal api
 
-    var cuisineType = response.cuisineType;//example; american, italian, asian etc
     var mealType = response.mealType; // ex: breakfast, lunch, and dinner
-    var imageSize = response.imageSize; //this way it shows recipe's with images
 
 }
-)
-.catch(err => console.error(err))
-
-}
-
-
-
 
 
 
