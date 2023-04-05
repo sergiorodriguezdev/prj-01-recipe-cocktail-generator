@@ -1,14 +1,14 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/override.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
 
     <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,27 +21,58 @@
     <script type="text/javascript" src="js/materialize.js"></script>
     <script src="assets/script.js"></script>
 </head>
+
 <body>
 
 
 
+    </div>
+
+    <nav class="sticky">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Logo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#recipes">Recipes</a></li>
+                <li><a href="#cocktails">Cocktails</a></li>
+                <li><a href="#favorites">Favorites</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <Header class="main-text">
+        <h1 class="display"> Recipes and Cocktails</h1>
+    </Header>
+
+
+    <main>
+        <div id="recipes" class="container">
+            <h2>Recipes</h2>
 
 
 
+        </div>
 
+        <DIV id="cocktails" class="container">
+            <h2>Cocktails</h2>
+
+        </DIV>
+
+
+
+    </main>
     <!-- Modal Trigger -->
     <button id="openModal" data-target="modal-favorites" class="btn modal-trigger">Favorites</button>
 
-<!-- This will be a  modal -->
+    <!-- This will be a  modal -->
 
 
 
-  <!-- Modal Structure -->
-  <div id="modal-favorites" class="modal modal-fixed-footer">
-    <div class="modal-content">
-        <h2>Favorites</h2>
-        <!-- <h3>You haven't saved any Favorites.</h3> -->
-        <!-- <div id="favorites">
+    <!-- Modal Structure -->
+    <div id="modal-favorites" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h2>Favorites</h2>
+            <!-- <h3>You haven't saved any Favorites.</h3> -->
+            <!-- <div id="favorites">
             <div style="display: flex; background-color: navy; color: white; margin: 3px">
                 <p>ICON - </p>
                 <p>RECIPE NAME - </p>
@@ -58,69 +89,25 @@
                 <p>REMOVE</p>
             </div>
         </div>  -->
-        <ul id="favorites-list" class="collapsible expandable">
-            <li>
-                <div class="collapsible-header">Meals</div>
-                <div id="favorites-meals" class="collapsible-body">
-                    
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header">Cocktails</div>
-                <div id="favorites-cocktails" class="collapsible-body">
+            <ul id="favorites-list" class="collapsible expandable">
+                <li>
+                    <div class="collapsible-header">Meals</div>
+                    <div id="favorites-meals" class="collapsible-body">
 
-                </div>
-            </li>
-        </ul>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-    </div>
-  </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">Cocktails</div>
+                    <div id="favorites-cocktails" class="collapsible-body">
 
-      
-</body>
-</html>
-    <title>Document</title>
-</head>
-<body>
-    <div class="navbar">
-        
-        
-        
-      </div>
-
-      <nav class="sticky">
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo">Logo</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="#recipes">Recipes</a></li>
-            <li><a href="#cocktails">Cocktails</a></li>
-            <li><a href="#favorites">Favorites</a></li>
-          </ul>
+                    </div>
+                </li>
+            </ul>
         </div>
-      </nav>
-
-    <Header class="main-text">
-        <h1 class="display"> Recipes and Cocktails</h1>
-    </Header>
-
-    
-<main>
-      <div id="recipes" class="container">
-        <h2>Recipes</h2>
-       
-       
-        
-      </div>
-
-      <DIV id="cocktails" class="container">
-        <h2>Cocktails</h2>
-       
-      </DIV>
-
- 
-
-</main>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
 </body>
+
 </html>
