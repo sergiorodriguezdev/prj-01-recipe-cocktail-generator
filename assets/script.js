@@ -1,5 +1,5 @@
 
-var RECIPE_URL = 'https://api.edamam.com/api/recipes/v2?type=public&app_id=3f79b5d7&app_key=81dbb6cafe543467792c934f5e6b64ca&diet=balanced&mealType=&mealType=Breakfast&mealType=Dinner&mealType=Lunch&random=true';
+var RECIPE_URL = 'https://api.edamam.com/api/recipes/v2?type=public&app_id=3f79b5d7&app_key=81dbb6cafe543467792c934f5e6b64ca%09&cuisineType=&cuisineType=American&cuisineType=Asian&cuisineType=British&cuisineType=Caribbean&cuisineType=Central%20Europe&cuisineType=Chinese&cuisineType=Eastern%20Europe&cuisineType=French&cuisineType=Indian&cuisineType=Italian&cuisineType=Japanese&cuisineType=Kosher&cuisineType=Mediterranean&cuisineType=Mexican&cuisineType=Middle%20Eastern&cuisineType=Nordic&cuisineType=South%20American&cuisineType=South%20East%20Asian&mealType=&mealType=Breakfast&mealType=Dinner&mealType=Lunch&imageSize=REGULAR&random=true';
 
 // first api for meals BASE URL : GET https://api.edamam.com/api/recipes/
 
