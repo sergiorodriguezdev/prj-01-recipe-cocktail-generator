@@ -1,4 +1,6 @@
 
+var api_id = 3f79b5d7
+
 var RECIPE_URL = 'https://api.edamam.com/api/recipes/v2?';
 
 // first api for meals BASE URL : GET https://api.edamam.com/api/recipes/
@@ -14,10 +16,7 @@ var cocktailObj = [];
 //define the function for recipe return
 
 function getrecipeinfo(event) {
-    event.preventDefault();
-    results.setAttribute()// idk what to set this as i am lost here
-     var searchInputEl = $("#search-ingredient-input")
-     var ingredient = searchInputEl.val()
+    
 
 
 
