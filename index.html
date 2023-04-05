@@ -1,21 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/style.css">
+
+    <!-- <link rel="stylesheet" href="assets/style.css"> -->
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+
     <title>Document</title>
+    <!-- Compiled and minified JavaScript -->
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <script src="assets/script.js"></script>
 </head>
+
 <body>
 
+    <h1>Cocktail Search</h1>
+    <form id="search-form">
+      <label for="ingredients">Search by Ingredients:</label>
+      <input type="text" id="ingredients" name="ingredients">
+      <button type="submit">Search</button>
+    </form>
+    <div id="results"></div>
+    <button id="random-button">Random Cocktail</button>
+
+    </div>
+
+    <nav class="sticky">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Logo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#recipes">Recipes</a></li>
+                <li><a href="#cocktails">Cocktails</a></li>
+                <li><a href="#favorites">Favorites</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <Header class="main-text">
+        <h1 class="display"> Recipes and Cocktails</h1>
+    </Header>
+
+
+    <main>
+        <div id="recipes" class="container">
+            <h2>Recipes</h2>
 
 
 
+        </div>
+
+        <DIV id="cocktails" class="container">
+            <h2>Cocktails</h2>
+
+        </DIV>
 
 
+
+    </main>
 
     <!-- Modal Trigger -->
     <button id="openModal" data-target="modal-favorites" class="btn modal-trigger">Favorites</button>
@@ -45,6 +98,26 @@
                 <p>RECIPE NAME - </p>
                 <p>REMOVE</p>
             </div>
+        </div>  -->
+            <ul id="favorites-list" class="collapsible expandable">
+                <li>
+                    <div class="collapsible-header">Meals</div>
+                    <div id="favorites-meals" class="collapsible-body">
+
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">Cocktails</div>
+                    <div id="favorites-cocktails" class="collapsible-body">
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
         </div> -->
         <ul id="favorites-list" class="collapsible expandable">
             <li>
@@ -70,4 +143,5 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="assets/script.js"></script>
 </body>
+
 </html>
