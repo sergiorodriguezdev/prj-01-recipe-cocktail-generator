@@ -8,6 +8,7 @@ var recipeName;
 var recipeObj = [];
 var cocktailName;
 var cocktailObj = []; 
+
 // use variable object to pull localstrorage on page?
 
 //define the function for recipe return
@@ -230,11 +231,6 @@ async function searchCocktailsByIngredients(ingredients) {
       resultsDiv.appendChild(list);
     }
   }
-  
-
-
-
-
 
 function saveFavorite( item, type ) {
   var existing = JSON.parse(localStorage.getItem(LS_FAVORITES));
