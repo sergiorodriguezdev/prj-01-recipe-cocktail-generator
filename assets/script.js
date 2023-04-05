@@ -20,6 +20,9 @@ var cocktailObj = [];
 //define the function for recipe return
 
 function getUrl() {
+  RECIPE_URL +='api_id='+ api_id;
+  RECIPE_URL +='api_key'+ api_key;
+  if (mealDinner.value)
 
 
 fetch(RECIPE_URL)
