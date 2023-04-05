@@ -1,0 +1,13 @@
+nav {
+    background-color: black;
+}
+
+.container {
+    min-height: 600px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }

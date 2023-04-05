@@ -5,9 +5,9 @@ var RECIPE_URL = 'https://api.edamam.com/api/recipes/v2?type=public&app_id=3f79b
 // global variables?
 
 var recipeName;
-var recipeObj [];
+var recipeObj = [];
 var cocktailName;
-var cocktailObj []; 
+var cocktailObj = []; 
 // use variable object to pull localstrorage on page?
 
 //define the function for recipe return
@@ -236,26 +236,17 @@ async function searchCocktailsByIngredients(ingredients) {
 
 
 
-[
-        {
-            recipeName: "some name"
-            type: "meal"
-        },
-        {
-            recipeName: "some cocktail"
-            type: "cocktail"
-        }
-]
+function saveFavorite( item, type ) {
+  var existing = JSON.parse(localStorage.getItem(LS_FAVORITES));
 
-const LS_FAVORITES = "Favorites-List"
-
-var listFavorites = JSON.parse(localStorage.getItem(LS_FAVORITES));
-
-localStorage.setItem(LS_FAVORITES, JSON.stringify(someArray));
-
-
-if (localStorage.clickcount) {
-    localStorage.clickcount = Number(localStorage.clickcount) + 1;
-  } else {
-    localStorage.clickcount = 1;
+  if(!existing.length){
+    existing = [];
   }
+
+  existing.push({
+    type: type,
+    data: item
+  });
+
+  localStorage.setItem(LS_FAVORITES, JSON.stringify(existing));
+}
