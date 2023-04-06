@@ -1,6 +1,6 @@
-var mealBreakfast = document.querySelector('#') // still need to add to html with the drop down tag
-var mealLunch = document.querySelector('#')
-var mealDinner = document.querySelector('#')
+var mealBreakfast = document.querySelector('#something') // still need to add to html with the drop down tag
+var mealLunch = document.querySelector('#something')
+var mealDinner = document.querySelector('#something')
 var api_id = '3f79b5d7'
 var api_key = '81dbb6cafe543467792c934f5e6b64ca'
 
@@ -15,40 +15,39 @@ var recipeName;
 var recipeObj = [];
 var cocktailName;
 
-var cocktailObj = []; 
+var cocktailObj = [];
 
 // use variable object to pull localstrorage on page?
 
 //define the function for recipe return
 
 function getUrl() {
-  RECIPE_URL +='api_id='+ api_id;
-  RECIPE_URL +='api_key'+ api_key;
+  RECIPE_URL += 'api_id=' + api_id;
+  RECIPE_URL += 'api_key' + api_key;
   if (mealBreakfast.value) {
-    RECIPE_URL +='&mealType=Breakfast';
+    RECIPE_URL += '&mealType=Breakfast';
   }
   if (mealLunch.value) {
-    RECIPE_URL +='&mealType=Lunch';
+    RECIPE_URL += '&mealType=Lunch';
   }
   if (mealDinner.value) {
-    RECIPE_URL +='&mealType=Dinner';
+    RECIPE_URL += '&mealType=Dinner';
   }
 
-function fetchMeal() {
-  var RECIPE_URL = getUrl();
-fetch(RECIPE_URL)
-.then(function(response)
-{
-  return response.json();
-})
-.then(function (data) {
-  console.log(data);
-});
+  function fetchMeal() {
+    var RECIPE_URL = getUrl();
+    fetch(RECIPE_URL)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+      });
+  }
+  // define variables of what we are pulling from the meal api
+
+  var mealType = response.mealType; // ex: breakfast, lunch, and dinner
 }
-    // define variables of what we are pulling from the meal api
-
-    var mealType = response.mealType; // ex: breakfast, lunch, and dinner
-
 
 var recipes = document.getElementById("recipes-results")
 var cocktails = document.getElementById("cocktails-results")
@@ -133,7 +132,7 @@ recipesFormBtn.addEventListener("click", function (event) {
 });
 
 cocktailsFormBtn.addEventListener("click", function (event) {
-  
+
   event.preventDefault();
 
   var cocktailsCheckboxes = document.querySelectorAll("#cocktails-results input[type=checkbox]:checked");
