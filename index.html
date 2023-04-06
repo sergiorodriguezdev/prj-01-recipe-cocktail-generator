@@ -52,17 +52,43 @@
         <h1 class="display"> Recipes and Cocktails</h1>
     </Header>
 
+    </div>
+
+    <nav class="sticky">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Logo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#recipes">Recipes</a></li>
+                <li><a href="#cocktails">Cocktails</a></li>
+                <li><a id="favorites-button" href="#modal-favorites">Favorites</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Modal Trigger -->
+    <!-- <button id="openModal" data-target="modal-favorites" class="btn modal-trigger">Favorites</button> -->
+
+    <Header class="main-text">
+        <h1 class="display"> Recipes and Cocktails</h1>
+    </Header>
 
     <main>
+        <h2>Recipes</h2>
         <div id="recipes" class="container">
-            <h2>Recipes</h2>
+            <form id="recipes-results" action="#">
 
+            </form>
+            <input id="recipes-res-submit" type="submit" form="recipes-results" value="Add to Favorites" disabled>
 
 
         </div>
-
+        <h2>Cocktails</h2>
         <DIV id="cocktails" class="container">
-            <h2>Cocktails</h2>
+            <form id="cocktails-results" action="#">
+
+            </form>
+            <input id="cocktails-res-submit" type="submit" form="cocktails-results" value="Add to Favorites" disabled>
+
 
         </DIV>
 
@@ -70,35 +96,11 @@
 
     </main>
 
-    <!-- Modal Trigger -->
-    <button id="openModal" data-target="modal-favorites" class="btn modal-trigger">Favorites</button>
-
-<!-- This will be a  modal -->
-
-
-
-  <!-- Modal Structure -->
-  <div id="modal-favorites" class="modal modal-fixed-footer">
-    <div class="modal-content">
-        <h2>Favorites</h2>
-        <!-- <h3>You haven't saved any Favorites.</h3> -->
-        <!-- <div id="favorites">
-            <div style="display: flex; background-color: navy; color: white; margin: 3px">
-                <p>ICON - </p>
-                <p>RECIPE NAME - </p>
-                <p>REMOVE</p>
-            </div>
-            <div style="display: flex; background-color: navy; color: white; margin: 3px">
-                <p>ICON - </p>
-                <p>RECIPE NAME - </p>
-                <p>REMOVE</p>
-            </div>
-            <div style="display: flex; background-color: navy; color: white; margin: 3px">
-                <p>ICON - </p>
-                <p>RECIPE NAME - </p>
-                <p>REMOVE</p>
-            </div>
-        </div>  -->
+    <!-- Modal Structure -->
+    <div id="modal-favorites" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h2>Favorites</h2>
+            <!-- <h3>You haven't saved any Favorites.</h3> -->
             <ul id="favorites-list" class="collapsible expandable">
                 <li>
                     <div class="collapsible-header">Meals</div>
@@ -117,30 +119,12 @@
         <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
         </div>
-    </div>
-        </div> -->
-        <ul id="favorites-list" class="collapsible expandable">
-            <li>
-                <div class="collapsible-header">Meals</div>
-                <div id="favorites-meals" class="collapsible-body">
-                    
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header">Cocktails</div>
-                <div id="favorites-cocktails" class="collapsible-body">
 
-                </div>
-            </li>
-        </ul>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-    </div>
-  </div>
 
-      <!-- Compiled and minified JavaScript -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="assets/script.js"></script>
 </body>
 
