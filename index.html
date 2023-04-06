@@ -1,73 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/style.css">
+
+    <!-- <link rel="stylesheet" href="assets/style.css"> -->
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+
     <title>Document</title>
+    <!-- Compiled and minified JavaScript -->
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <script src="assets/script.js"></script>
 </head>
+
 <body>
 
+    <h1>Cocktail Search</h1>
+    <form id="search-form">
+      <label for="ingredients">Search by Ingredients:</label>
+      <input type="text" id="ingredients" name="ingredients">
+      <button type="submit">Search</button>
+    </form>
+    <div id="results"></div>
+    <button id="random-button">Random Cocktail</button>
 
+    </div>
 
+    <nav class="sticky">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Logo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#recipes">Recipes</a></li>
+                <li><a href="#cocktails">Cocktails</a></li>
+                <li><a href="#favorites">Favorites</a></li>
+            </ul>
+        </div>
+    </nav>
 
+    <Header class="main-text">
+        <h1 class="display"> Recipes and Cocktails</h1>
+    </Header>
 
+    </div>
 
+    <nav class="sticky">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Logo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#recipes">Recipes</a></li>
+                <li><a href="#cocktails">Cocktails</a></li>
+                <li><a id="favorites-button" href="#modal-favorites">Favorites</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- Modal Trigger -->
-    <button id="openModal" data-target="modal-favorites" class="btn modal-trigger">Favorites</button>
+    <!-- <button id="openModal" data-target="modal-favorites" class="btn modal-trigger">Favorites</button> -->
 
-<!-- This will be a  modal -->
+    <Header class="main-text">
+        <h1 class="display"> Recipes and Cocktails</h1>
+    </Header>
+
+    <main>
+        <h2>Recipes</h2>
+        <div id="recipes" class="container">
+            <form id="recipes-results" action="#">
+
+            </form>
+            <input id="recipes-res-submit" type="submit" form="recipes-results" value="Add to Favorites" disabled>
+
+
+        </div>
+        <h2>Cocktails</h2>
+        <DIV id="cocktails" class="container">
+            <form id="cocktails-results" action="#">
+
+            </form>
+            <input id="cocktails-res-submit" type="submit" form="cocktails-results" value="Add to Favorites" disabled>
+
+
+        </DIV>
 
 
 
-  <!-- Modal Structure -->
-  <div id="modal-favorites" class="modal modal-fixed-footer">
-    <div class="modal-content">
-        <h2>Favorites</h2>
-        <!-- <h3>You haven't saved any Favorites.</h3> -->
-        <!-- <div id="favorites">
-            <div style="display: flex; background-color: navy; color: white; margin: 3px">
-                <p>ICON - </p>
-                <p>RECIPE NAME - </p>
-                <p>REMOVE</p>
-            </div>
-            <div style="display: flex; background-color: navy; color: white; margin: 3px">
-                <p>ICON - </p>
-                <p>RECIPE NAME - </p>
-                <p>REMOVE</p>
-            </div>
-            <div style="display: flex; background-color: navy; color: white; margin: 3px">
-                <p>ICON - </p>
-                <p>RECIPE NAME - </p>
-                <p>REMOVE</p>
-            </div>
-        </div> -->
-        <ul id="favorites-list" class="collapsible expandable">
-            <li>
-                <div class="collapsible-header">Meals</div>
-                <div id="favorites-meals" class="collapsible-body">
-                    
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header">Cocktails</div>
-                <div id="favorites-cocktails" class="collapsible-body">
+    </main>
 
-                </div>
-            </li>
-        </ul>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-    </div>
-  </div>
+    <!-- Modal Structure -->
+    <div id="modal-favorites" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h2>Favorites</h2>
+            <!-- <h3>You haven't saved any Favorites.</h3> -->
+            <ul id="favorites-list" class="collapsible expandable">
+                <li>
+                    <div class="collapsible-header">Meals</div>
+                    <div id="favorites-meals" class="collapsible-body">
 
-      <!-- Compiled and minified JavaScript -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">Cocktails</div>
+                    <div id="favorites-cocktails" class="collapsible-body">
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+
+
+
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="assets/script.js"></script>
 </body>
+
 </html>
