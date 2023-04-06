@@ -1,8 +1,9 @@
-var mealBreakfast = document.querySelector('#something') // still need to add to html with the drop down tag
-var mealLunch = document.querySelector('#something')
-var mealDinner = document.querySelector('#something')
+var mealBreakfast = document.querySelector('#meal-breakfast') // still need to add to html with the drop down tag
+var mealLunch = document.querySelector('#meal-lunch')
+var mealDinner = document.querySelector('#meal-dinner')
 var api_id = '3f79b5d7'
 var api_key = '81dbb6cafe543467792c934f5e6b64ca'
+var searchMeal = document.querySelector('#meal-search')
 
 var RECIPE_URL = 'https://api.edamam.com/api/recipes/v2?';
 
