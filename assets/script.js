@@ -33,7 +33,7 @@ function getUrl() {
   if (mealDinner.value) {
     RECIPE_URL +='&mealType=Dinner';
   }
-
+}  // forgot this little bugger lol
 function fetchMeal() {
   var RECIPE_URL = getUrl();
 fetch(RECIPE_URL)
