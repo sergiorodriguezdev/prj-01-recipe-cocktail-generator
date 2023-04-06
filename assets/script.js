@@ -34,20 +34,22 @@ function getUrl() {
     RECIPE_URL += '&mealType=Dinner';
   }
 
-  function fetchMeal() {
-    var RECIPE_URL = getUrl();
-    fetch(RECIPE_URL)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data);
-      });
-  }
-  // define variables of what we are pulling from the meal api
-
-  var mealType = response.mealType; // ex: breakfast, lunch, and dinner
+}  // forgot this little bugger lol
+function fetchMeal() {
+  var RECIPE_URL = getUrl();
+fetch(RECIPE_URL)
+.then(function(response)
+{
+  return response.json();
+})
+.then(function (data) {
+  console.log(data);
+});
 }
+    // define variables of what we are pulling from the meal api
+
+    var mealType = response.mealType; // ex: breakfast, lunch, and dinner
+
 
 var recipes = document.getElementById("recipes-results")
 var cocktails = document.getElementById("cocktails-results")
