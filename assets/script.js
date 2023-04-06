@@ -1,42 +1,53 @@
-var RECIPE_URL = 'https://api.edamam.com/api/recipes/v2?type=public&app_id=3f79b5d7&app_key=81dbb6cafe543467792c934f5e6b64ca&diet=balanced&mealType=&mealType=Breakfast&mealType=Dinner&mealType=Lunch&random=true';
+var mealBreakfast = document.querySelector('#') // still need to add to html with the drop down tag
+var mealLunch = document.querySelector('#')
+var mealDinner = document.querySelector('#')
+var api_id = '3f79b5d7'
+var api_key = '81dbb6cafe543467792c934f5e6b64ca'
+
+var RECIPE_URL = 'https://api.edamam.com/api/recipes/v2?';
 
 // first api for meals BASE URL : GET https://api.edamam.com/api/recipes/
+
 
 // global variables?
 
 var recipeName;
 var recipeObj = [];
 var cocktailName;
-var cocktailObj = [];
+
+var cocktailObj = []; 
 
 // use variable object to pull localstrorage on page?
 
 //define the function for recipe return
 
-function getrecipeinfo(event) {
-  event.preventDefault();
-  results.setAttribute()// idk what to set this as i am lost here
-  var searchInputEl = $("#search-ingredient-input")
-  var ingredient = searchInputEl.val()
+function getUrl() {
+  RECIPE_URL +='api_id='+ api_id;
+  RECIPE_URL +='api_key'+ api_key;
+  if (mealBreakfast.value) {
+    RECIPE_URL +='&mealType=Breakfast';
+  }
+  if (mealLunch.value) {
+    RECIPE_URL +='&mealType=Lunch';
+  }
+  if (mealDinner.value) {
+    RECIPE_URL +='&mealType=Dinner';
+  }
 
-
-
-  fetch(RECIPE_URL)
-    .then(response => response.json())
-    .then(response => {
-
-      // define variables of what we are pulling from the meal api
-
-      var Ingredient = response.Ingredient;
-      var Name = response.Name;
-      var Type = response.Type; //example; american, italian, asian etc
-      var Diet = response.Diet;
-
-    }
-    )
-    .catch(err => console.error(err))
-
+function fetchMeal() {
+  var RECIPE_URL = getUrl();
+fetch(RECIPE_URL)
+.then(function(response)
+{
+  return response.json();
+})
+.then(function (data) {
+  console.log(data);
+});
 }
+    // define variables of what we are pulling from the meal api
+
+    var mealType = response.mealType; // ex: breakfast, lunch, and dinner
 
 
 var recipes = document.getElementById("recipes-results")
@@ -106,6 +117,7 @@ function loadResults(resultsForm, type, data) {
     resultsForm.append(resultsRow);
   }
 }
+
 
 recipesFormBtn.addEventListener("click", function (event) {
   event.preventDefault();
