@@ -4,8 +4,10 @@ var mealDinner = document.querySelector('#meal-dinner')
 var api_id = '3f79b5d7'
 var api_key = '81dbb6cafe543467792c934f5e6b64ca'
 var searchMeal = document.querySelector('#meal-search')
+var searchMealForm = document.getElementById("meal-search-form");
+var mealResultsDiv = document.getElementById("meal-results");
 
-var RECIPE_URL = 'https://api.edamam.com/api/recipes/v2?';
+var RECIPE_URL = 'https://api.edamam.com/api/recipes/v2?type=public';
 
 // first api for meals BASE URL : GET https://api.edamam.com/api/recipes/
 
@@ -23,32 +25,69 @@ var cocktailObj = [];
 //define the function for recipe return
 
 function getUrl() {
-  RECIPE_URL += 'api_id=' + api_id;
-  RECIPE_URL += 'api_key' + api_key;
-  if (mealBreakfast.value) {
-    RECIPE_URL += '&mealType=Breakfast';
-  }
-  if (mealLunch.value) {
-    RECIPE_URL += '&mealType=Lunch';
-  }
-  if (mealDinner.value) {
-    RECIPE_URL += '&mealType=Dinner';
-  }
+  RECIPE_URL += '&app_id=' + api_id;
+  RECIPE_URL += '&app_key=' + api_key;
 
-}  // forgot this little bugger lol
+  // if (searchMeal.value === "Breakfast") {
+  //   RECIPE_URL += '&mealType=Breakfast';
+  // }
+  // else if (searchMeal.value === "Breakfast") {
+  //   RECIPE_URL += '&mealType=Lunch';
+  // }
+  // else if (searchMeal.value === "Breakfast") {
+  //   RECIPE_URL += '&mealType=Dinner';
+  // }
+
+  RECIPE_URL += "&mealType=" + searchMeal.value;
+
+}
+
 function fetchMeal() {
-  var RECIPE_URL = getUrl();
+  getUrl();
   fetch(RECIPE_URL)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       console.log(data);
+
+      // get the array of recipes from response (hits)
+      var mealResults = data.hits;
+
+      mealResultsDiv.innerHTML = '';
+
+      const list = document.createElement('ul');
+
+      for (const meal of mealResults) {
+        const listItem = document.createElement('li');
+
+        const cocktailLink = document.createElement('span');
+        cocktailLink.textContent = meal.recipe.label;
+
+        var labelEl = document.createElement("label");
+
+        var checkboxEl = document.createElement("input");
+        checkboxEl.setAttribute("type", "checkbox");
+
+        labelEl.append(checkboxEl);
+
+        labelEl.appendChild(cocktailLink);
+
+        listItem.append(labelEl);
+
+        list.appendChild(listItem);
+      }
+
+      mealResultsDiv.appendChild(list);
     });
 }
-// define variables of what we are pulling from the meal api
 
-// var mealType = response.mealType; // ex: breakfast, lunch, and dinner
+searchMealForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  fetchMeal();
+
+});
 
 document.addEventListener('DOMContentLoaded', function () {
   var elems = document.querySelectorAll('select');
@@ -57,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 var recipes = document.getElementById("recipes-results")
 var cocktails = document.getElementById("cocktails-results")
-// var recipesFormBtn = document.getElementById("recipes-res-submit")
+var recipesFormBtn = document.getElementById("meal-results-submit")
 var cocktailsFormBtn = document.getElementById("results-submit")
 
 var myData = [
@@ -96,7 +135,7 @@ function loadResults(resultsForm, type, data) {
     //no results found
   } else {
     if (type === "recipes") {
-      // recipesFormBtn.disabled = false;
+      recipesFormBtn.disabled = false;
     } else if (type === "cocktails") {
       cocktailsFormBtn.disabled = false;
     }
@@ -124,18 +163,18 @@ function loadResults(resultsForm, type, data) {
 }
 
 
-// recipesFormBtn.addEventListener("click", function (event) {
-//   event.preventDefault();
+recipesFormBtn.addEventListener("click", function (event) {
+  event.preventDefault();
 
-//   var recipesCheckboxes = document.querySelectorAll("#results input[type=checkbox]:checked");
+  var recipesCheckboxes = document.querySelectorAll("#meal-results input[type=checkbox]:checked");
 
-//   for (let i = 0; i < recipesCheckboxes.length; i++) {
-//     var nextSpanSibling = recipesCheckboxes[i].nextElementSibling;
+  for (let i = 0; i < recipesCheckboxes.length; i++) {
+    var nextSpanSibling = recipesCheckboxes[i].nextElementSibling;
 
-//     saveFavorite(nextSpanSibling.textContent, "meal");
+    saveFavorite(nextSpanSibling.textContent, "meal");
 
-//   }
-// });
+  }
+});
 
 cocktailsFormBtn.addEventListener("click", function (event) {
 
@@ -252,7 +291,7 @@ favoritesListEl.addEventListener("click", function (event) {
 var openModalBtn = document.getElementById("favorites-button");
 openModalBtn.addEventListener("click", function (event) {
   event.preventDefault();
-  
+
   // Initialize modal
   var favModal = document.getElementById("modal-favorites");
   var modalInstance = M.Modal.init(favModal);
@@ -360,15 +399,15 @@ function displayResults(results) {
 
     var labelEl = document.createElement("label");
 
-      var checkboxEl = document.createElement("input");
-  checkboxEl.setAttribute("type", "checkbox");
+    var checkboxEl = document.createElement("input");
+    checkboxEl.setAttribute("type", "checkbox");
 
-  labelEl.append(checkboxEl);
+    labelEl.append(checkboxEl);
 
     labelEl.appendChild(cocktailLink);
 
     listItem.append(labelEl);
-    
+
     list.appendChild(listItem);
   }
 
@@ -378,8 +417,8 @@ function displayResults(results) {
 
 function saveFavorite(item, type) {
   var existing = JSON.parse(localStorage.getItem(LS_FAVORITES));
-  
-  if (existing === null ) {
+
+  if (existing === null) {
     existing = [];
   }
 

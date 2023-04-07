@@ -1,4 +1,5 @@
-# Recipe + Cocktail Generator (Name: TBD)
+# Recipe + Cocktail Generator
+# *Food(d) and Bar*
 
 ## Description
 
