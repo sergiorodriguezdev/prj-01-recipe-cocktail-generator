@@ -162,17 +162,16 @@ function loadFavorites() {
   for (var i = 0; i < listFavorites.length; i++) {
     var favoriteItem = document.createElement("div");
     favoriteItem.setAttribute("data-fav-idx", i);
-
-    var favoriteIcon = document.createElement("img");
-
-    var favoriteName = document.createElement("h3");
-    favoriteName.textContent = listFavorites[i].recipeName;
+    favoriteItem.classList.add("row");
+    favoriteItem.classList.add("grey");
+    favoriteItem.classList.add("lighten-2");
+    favoriteItem.textContent = listFavorites[i].recipeName;
 
     var favoriteRemoveButton = document.createElement("button");
-    favoriteRemoveButton.textContent = "Remove";
+    favoriteRemoveButton.textContent = "X";
+    favoriteRemoveButton.classList.add("btn-flat");
+    favoriteRemoveButton.classList.add("right");
 
-    favoriteItem.append(favoriteIcon);
-    favoriteItem.append(favoriteName);
     favoriteItem.append(favoriteRemoveButton);
 
     if (listFavorites[i].type === "meal") {
