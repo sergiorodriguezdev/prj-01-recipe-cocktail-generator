@@ -82,14 +82,36 @@
         </div>
     </nav>
 
-    <!-- Modal Trigger -->
-    <!-- <button id="openModal" data-target="modal-favorites" class="btn modal-trigger">Favorites</button> -->
+    <h1>Cocktail Search</h1>
+    <form id="search-form">
+        <!-- <input type="text" id="ingredients" name="ingredients"> -->
+        <select id="ingredients" name="ingredients">
+            <option>Vodka</option>
+            <option>Gin</option>
+            <option>Tequila</option>
+            <option>Whiskey</option>
+            <option>Rum</option>
+            <option>Cognac</option>
+            <option>Brandy</option>
+            <option>Rum</option>
+            <option>Bourbon</option>
+        </select>
+        <label for="ingredients">Pick your poison:</label>
+        <button type="submit">Search</button>
+    </form>
+    <button id="random-button">Random Cocktail</button>
+    <div>
+        <form id="results" name="results">
 
-    <Header class="main-text">
+        </form>
+        <input id="results-submit" type="submit" form="results" value="Add to Favorites">
+    </div>
+
+    <!-- <Header class="main-text">
         <h1 class="display"> Recipes and Cocktails</h1>
-    </Header>
+    </Header> -->
 
-    <main>
+    <!-- <main>
         <h2>Recipes</h2>
         <div id="recipes" class="container">
             <form id="recipes-results" action="#">
@@ -111,7 +133,7 @@
 
 
 
-    </main>
+    </main> -->
 
     <!-- Modal Structure -->
     <div id="modal-favorites" class="modal modal-fixed-footer">
@@ -140,9 +162,9 @@
 
 
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="assets/script.js"></script>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="assets/script.js"></script>
 </body>
 
 </html>
