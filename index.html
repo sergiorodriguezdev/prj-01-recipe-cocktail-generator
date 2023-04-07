@@ -17,7 +17,7 @@
     <!-- Compiled and minified CSS -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
 
-    <title>Document</title>
+    <title>Foo(d) and Bar</title>
     <!-- Compiled and minified JavaScript -->
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="js/materialize.js"></script>
@@ -26,41 +26,13 @@
 
 <body>
 
-    <!--Sara's html shenanigans-->
-    <div id="meal-search-form" class="section-container"></div>
-        <h1>Meal Search</h1>
-        <form>
-            <div class="dropdown">
-                <label for="meal-search">Choose a meal type:</label>
-                <select name="meal-search" id="meal-search">
-                    <option id="meal-breakfast">Breakfast</option>
-                    <option id="meal-lunch">Lunch</option>
-                    <option id="meal-dinner">Dinner</option>
-                </select>
-            </div>
-        </form>
-
-    </div>
-
-
-    <h1>Cocktail Search</h1>
-    <form id="search-form">
-      <label for="ingredients">Search by Ingredients:</label>
-      <input type="text" id="ingredients" name="ingredients">
-      <button type="submit">Search</button>
-    </form>
-    <div id="results"></div>
-    <button id="random-button">Random Cocktail</button>
-
-    </div>
-
     <nav class="sticky">
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Logo</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <div class="nav-wrapper blue">
+            <a href="#" class="brand-logo">Foo(d) and Bar</a>
+            <ul id="nav-mobile" class="right">
                 <li><a href="#recipes">Recipes</a></li>
-                <li><a href="#cocktails">Cocktails</a></li>
-                <li><a href="#favorites">Favorites</a></li>
+                <li><a href="#search-form">Cocktails</a></li>
+                <li><a id="favorites-button" href="#modal-favorites">Favorites</a></li>
             </ul>
         </div>
     </nav>
@@ -69,71 +41,65 @@
         <h1 class="display"> Recipes and Cocktails</h1>
     </Header>
 
+    <div class="container">
+        <div class="row">
+            <div class="col m6">
+
+                <!--Sara's html shenanigans-->
+                <div id="recipes" class="section-container">
+                    <h2>Meal Search</h2>
+                    <form id="meal-search-form">
+                        <div class="dropdown">
+                            <label for="meal-search">Choose a meal type:</label>
+                            <select name="meal-search" id="meal-search">
+                                <option id="meal-breakfast">Breakfast</option>
+                                <option id="meal-lunch">Lunch</option>
+                                <option id="meal-dinner">Dinner</option>
+                            </select>
+                        </div>
+                        <button type="submit" for="meal-search-form">Search</button>
+                    </form>
+                </div>
+
+                <div class="hide">
+                    <form id="meal-results" name="meal-results">
+
+                    </form>
+                    <input id="meal-results-submit" type="submit" form="meal-results" value="Add to Favorites">
+                </div>
+            </div>
+            <div class="col m6">
+                <h2>Cocktail Search</h2>
+                <form id="search-form">
+                    <label for="ingredients">Pick your poison:</label>
+                    <select id="ingredients" name="ingredients">
+                        <option>Vodka</option>
+                        <option>Gin</option>
+                        <option>Tequila</option>
+                        <option>Whiskey</option>
+                        <option>Rum</option>
+                        <option>Cognac</option>
+                        <option>Brandy</option>
+                        <option>Rum</option>
+                        <option>Bourbon</option>
+                    </select>
+                </form>
+                <div>
+                    <button type="submit" for="search-form">Search</button>
+                    <button id="random-button">Random Cocktail</button>
+                </div>
+                <div class="hide">
+                    <form id="results" name="results">
+
+                    </form>
+                    <input id="results-submit" type="submit" form="results" value="Add to Favorites">
+                </div>
+            </div>
+        </div>
     </div>
 
-    <nav class="sticky">
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Logo</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="#recipes">Recipes</a></li>
-                <li><a href="#cocktails">Cocktails</a></li>
-                <li><a id="favorites-button" href="#modal-favorites">Favorites</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <h1>Cocktail Search</h1>
-    <form id="search-form">
-        <!-- <input type="text" id="ingredients" name="ingredients"> -->
-        <select id="ingredients" name="ingredients">
-            <option>Vodka</option>
-            <option>Gin</option>
-            <option>Tequila</option>
-            <option>Whiskey</option>
-            <option>Rum</option>
-            <option>Cognac</option>
-            <option>Brandy</option>
-            <option>Rum</option>
-            <option>Bourbon</option>
-        </select>
-        <label for="ingredients">Pick your poison:</label>
-        <button type="submit">Search</button>
-    </form>
-    <button id="random-button">Random Cocktail</button>
-    <div>
-        <form id="results" name="results">
-
-        </form>
-        <input id="results-submit" type="submit" form="results" value="Add to Favorites">
-    </div>
-
-    <!-- <Header class="main-text">
-        <h1 class="display"> Recipes and Cocktails</h1>
-    </Header> -->
-
-    <!-- <main>
-        <h2>Recipes</h2>
-        <div id="recipes" class="container">
-            <form id="recipes-results" action="#">
-
-            </form>
-            <input id="recipes-res-submit" type="submit" form="recipes-results" value="Add to Favorites" disabled>
 
 
-        </div>
-        <h2>Cocktails</h2>
-        <DIV id="cocktails" class="container">
-            <form id="cocktails-results" action="#">
-
-            </form>
-            <input id="cocktails-res-submit" type="submit" form="cocktails-results" value="Add to Favorites" disabled>
-
-
-        </DIV>
-
-
-
-    </main> -->
 
     <!-- Modal Structure -->
     <div id="modal-favorites" class="modal modal-fixed-footer">
