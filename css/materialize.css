@@ -9082,8 +9082,5 @@ input[type=range]::-ms-thumb {
     text-align: center;
     margin-top: 1.2rem;
   }
-  .dropdown {
-    display: inline-block;
-    position: relative;
-  }
+  
 }
