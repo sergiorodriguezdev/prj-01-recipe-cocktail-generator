@@ -1,0 +1,10 @@
+.header-background {
+    background-image: url("./images/drinks.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.header-img {
+    /* opacity: 0.5; */
+}
