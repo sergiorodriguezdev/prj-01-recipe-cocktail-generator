@@ -26,7 +26,52 @@
 
 <body>
 
-    <nav>
+    <!--Sara's html shenanigans-->
+    <div id="meal-search-form" class="section-container"></div>
+        <h1>Meal Search</h1>
+        <form>
+            <div class="dropdown">
+                <label for="meal-search">Choose a meal type:</label>
+                <select name="meal-search" id="meal-search">
+                    <option id="meal-breakfast">Breakfast</option>
+                    <option id="meal-lunch">Lunch</option>
+                    <option id="meal-dinner">Dinner</option>
+                </select>
+            </div>
+        </form>
+
+    </div>
+
+
+    <h1>Cocktail Search</h1>
+    <form id="search-form">
+      <label for="ingredients">Search by Ingredients:</label>
+      <input type="text" id="ingredients" name="ingredients">
+      <button type="submit">Search</button>
+    </form>
+    <div id="results"></div>
+    <button id="random-button">Random Cocktail</button>
+
+    </div>
+
+    <nav class="sticky">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Logo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#recipes">Recipes</a></li>
+                <li><a href="#cocktails">Cocktails</a></li>
+                <li><a href="#favorites">Favorites</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <Header class="main-text">
+        <h1 class="display"> Recipes and Cocktails</h1>
+    </Header>
+
+    </div>
+
+    <nav class="sticky">
         <div class="nav-wrapper">
             <a href="#" class="brand-logo">Logo</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
