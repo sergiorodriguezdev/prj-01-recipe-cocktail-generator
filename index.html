@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- <link rel="stylesheet" href="assets/style.css"> -->
+    <link rel="stylesheet" href="assets/style.css">
     <!-- Compiled and minified CSS -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
 
@@ -26,22 +26,41 @@
 
 <body>
 
-    <nav class="sticky">
-        <div class="nav-wrapper blue">
-            <a href="#" class="brand-logo">Foo(d) and Bar</a>
-            <ul id="nav-mobile" class="right">
-                <li><a href="#recipes">Recipes</a></li>
-                <li><a href="#search-form">Cocktails</a></li>
-                <li><a id="favorites-button" href="#modal-favorites">Favorites</a></li>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper blue">
+                <a href="#" class="brand-logo">Foo(d) and Bar</a>
+                <ul class="right">
+                    <li><a href="#top">Back to Top</a></li>
+                    <li><a id="favorites-button" href="#modal-favorites">Favorites</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="header-img">
+        <Header class="main-text header-background">
+            <h1 class="display center-align"> Recipes and Cocktails</h1>
+            <ul class="collection">
+                <li class="collection-item transparent">1. Enter your search criteria to search for meal or cocktail
+                    recipes.</li>
+                <li class="collection-item transparent">2. Click <em>Search</em> and you will be presented with a list
+                    of recipe names.</li>
+                <li class="collection-item transparent">3. Mark which recipes you would like to save to your
+                    <strong>Favorites</strong> by clicking their corresponding checkbox. Then, click <em>Add to
+                        Favorites</em>.</li>
+                <li class="collection-item transparent">4. To access your <strong>Favorites</strong>, click the
+                    `Favorites` link in the navigation bar at the top. You will be presented with a dialog box (a modal)
+                    with two headers: Meals and Cocktails.</li>
+                <li class="collection-item transparent">5. Click the headers to expand the lists of your favorite
+                    recipes.</li>
+                <li class="collection-item transparent">6. Click the <em>X</em> button next the recipe name to remove
+                    the recipe from your favorites.</li>
             </ul>
-        </div>
-    </nav>
+        </Header>
+    </div>
 
-    <Header class="main-text">
-        <h1 class="display"> Recipes and Cocktails</h1>
-    </Header>
-
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col m6">
 
@@ -57,7 +76,7 @@
                                 <option id="meal-dinner">Dinner</option>
                             </select>
                         </div>
-                        <button type="submit" for="meal-search-form">Search</button>
+                        <button type="submit" form="meal-search-form">Search</button>
                     </form>
                 </div>
 
@@ -85,7 +104,7 @@
                     </select>
                 </form>
                 <div>
-                    <button type="submit" for="search-form">Search</button>
+                    <button type="submit" form="search-form">Search</button>
                     <button id="random-button">Random Cocktail</button>
                 </div>
                 <div class="hide">
@@ -108,13 +127,13 @@
             <!-- <h3>You haven't saved any Favorites.</h3> -->
             <ul id="favorites-list" class="collapsible expandable">
                 <li>
-                    <div class="collapsible-header">Meals</div>
+                    <div class="collapsible-header blue">Meals</div>
                     <div id="favorites-meals" class="collapsible-body">
 
                     </div>
                 </li>
                 <li>
-                    <div class="collapsible-header">Cocktails</div>
+                    <div class="collapsible-header blue">Cocktails</div>
                     <div id="favorites-cocktails" class="collapsible-body">
 
                     </div>
@@ -122,7 +141,7 @@
             </ul>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat blue">Close</a>
         </div>
 
 
