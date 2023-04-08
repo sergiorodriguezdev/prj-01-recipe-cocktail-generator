@@ -5,6 +5,31 @@
     background-position: center;
 }
 
-.header-img {
-    /* opacity: 0.5; */
+.dropdown {
+    background-color: rgb(202, 234, 234);
 }
+
+#search-form {
+    background-color: rgb(202, 234, 234);
+}
+
+button {
+    background-color: teal; /* teal */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; 
+}
+
+h2 {
+    font-weight: 200;
+    font-family: Verdana, Geneva, Tahoma, sans-serif ;
+}
+
+h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
