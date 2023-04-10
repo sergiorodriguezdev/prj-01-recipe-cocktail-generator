@@ -3,7 +3,7 @@
 
 ## Description
 
-We wanted to create an app that allows users to search for food and cocktail recipes based on criteria they entered like alcohol type, cuisine type, and meal type (breakfast, lunch, and dinner).
+We wanted to create an app that allows users to search for food and cocktail recipe names based on criteria like alcohol type and meal type (breakfast, lunch, and dinner).
 
 You’ve had a lot going on and haven’t had time to come up with good food and drink recipes or maybe you are looking to try something new. It would be great to have a an app where you can receive some randomized recommendations.
 
@@ -43,27 +43,27 @@ Use a random recipe and cocktail generator to search and save your favorites and
 
 ```
 AS A food and drink connoisseur
-I WANT to be able to find food + cocktail recommendations based on specific ingredients provided in a search
-SO THAT I can utilize my current inventory and save the ideas for quick references.
+I WANT to be able to find food + cocktail recommendations based on the meal type and alcohol type selected in a search
+SO THAT I can save the ideas for quick references.
 ```
 
 ## Acceptance Criteria
 
 ```
-GIVEN a recipe and cocktail search app
-WHEN I search for a meal recipe based on parameters provided
-THEN I see a list of meal recipes
-WHEN I search for  a cocktail recipe based on parameters provided
-THEN I see a list of cocktail recipes
+GIVEN a meal and cocktail search app
+WHEN I search for a meal based on parameters provided
+THEN I see a list of meal names
+WHEN I search for  a cocktail based on parameters provided
+THEN I see a list of cocktail names
 WHEN I click the “Random Cocktail” button
-THEN I see a single cocktail recipe which was chosen at random
-WHEN I mark a recipe(s) (meal or cocktail) as a favorite and click “Save”
-THEN these recipes are added to my list of favorites
+THEN I see a single cocktail name which was chosen at random
+WHEN I mark a recipe name(s) (meal or cocktail) as a favorite and click “Add to Favorites”
+THEN these names are added to my list of favorites
 WHEN I click the navigation links in the navigation bar
 THEN I am taken to the corresponding sections in the app
 WHEN I click the Favorites navigation link
-THEN I am presented with a list of recipes I have marked as favorites
-WHEN I see the list of favorite recipes and click the “Remove” button
+THEN I am presented with a list of recipe names I have marked as favorites
+WHEN I see the list of favorite recipe names and click the “Remove” button
 THEN the individual recipe is removed from my list of favorites
 ```
 
@@ -71,7 +71,7 @@ THEN the individual recipe is removed from my list of favorites
 
 Access the app [HERE](https://johnbaldwin82.github.io/project-01/)
 
-1. Enter your search criteria to search for meal or cocktail recipes.
+1. Select your search criteria from the drop down options provided to search for meal or cocktail recipes.
 2. Click `Search` and you will be presented with a list of recipe names.
 3. Mark which recipes you would like to save to your **Favorites** by clicking their corresponding checkbox. Then, click `Add to Favorites`.
 4. To access your **Favorites**, click the `Favorites` link in the navigation bar at the top. You will be presented with a dialog box (a modal) with two headers: Meals and Cocktails.
