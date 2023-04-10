@@ -2,10 +2,6 @@
 <html lang="en">
 
 <head>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,23 +9,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
     <link rel="stylesheet" href="assets/style.css">
-    <!-- Compiled and minified CSS -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
 
     <title>Foo(d) and Bar</title>
-    <!-- Compiled and minified JavaScript -->
-    <!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="js/materialize.js"></script>
-    <script src="assets/script.js"></script>
+
 </head>
 
-<body>
+<body class="teal lighten-4">
 
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper teal">
-                <a href="#" class="brand-logo"><b>Foo(d) and Bar</b></a>
+                <a href="#" class="brand-logo left"><b>Foo(d) and Bar</b></a>
                 <ul class="right">
                     <li><a href="#top">Back to Top</a></li>
                     <li><a id="favorites-button" href="#modal-favorites">Favorites</a></li>
@@ -38,7 +31,7 @@
         </nav>
     </div>
 
-    <div class="header-img">
+    <div>
         <Header class="main-text header-background">
             <h1 class="display center-align">Recipes & Cocktails</h1>
             <ul class="collection">
@@ -48,7 +41,8 @@
                     of recipe names.</li>
                 <li class="collection-item transparent">3. Mark which recipes you would like to save to your
                     <strong>Favorites</strong> by clicking their corresponding checkbox. Then, click <em>Add to
-                        Favorites</em>.</li>
+                        Favorites</em>.
+                </li>
                 <li class="collection-item transparent">4. To access your <strong>Favorites</strong>, click the
                     `Favorites` link in the navigation bar at the top. You will be presented with a dialog box (a modal)
                     with two headers: Meals and Cocktails.</li>
@@ -64,7 +58,6 @@
         <div class="row teal lighten-4">
             <div class="col m6">
 
-                <!--Sara's html shenanigans-->
                 <div id="recipes" class="section-container">
                     <h2>Meal Search</h2>
                     <form id="meal-search-form">
@@ -117,14 +110,11 @@
         </div>
     </div>
 
-
-
-
     <!-- Modal Structure -->
     <div id="modal-favorites" class="modal modal-fixed-footer">
         <div class="modal-content">
             <h2>Favorites</h2>
-            <!-- <h3>You haven't saved any Favorites.</h3> -->
+            <h3 id="fav-helper">You haven't saved any Favorites.</h3>
             <ul id="favorites-list" class="collapsible expandable">
                 <li>
                     <div class="collapsible-header teal">Meals</div>
@@ -141,14 +131,10 @@
             </ul>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat blue">Close</a>
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat teal">Close</a>
         </div>
 
-
-
-
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/materialize.js"></script>
         <script src="assets/script.js"></script>
 </body>
 

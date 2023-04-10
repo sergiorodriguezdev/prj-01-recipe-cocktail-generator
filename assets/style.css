@@ -1,5 +1,9 @@
 .header-background {
-    background-image: url("./images/drinks.png");
+    background-image: linear-gradient(
+    rgba(178, 223, 219, 0.2),
+    rgba(178, 223, 219, 0.2)
+  ),url("./images/drinks.png");
+    /* background-image: url("./images/drinks.png"); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

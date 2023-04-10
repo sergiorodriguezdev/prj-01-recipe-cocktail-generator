@@ -1,89 +1,31 @@
-var mealBreakfast = document.querySelector('#meal-breakfast') // still need to add to html with the drop down tag
+// Constants
+const api_id = '3f79b5d7'
+const api_key = '81dbb6cafe543467792c934f5e6b64ca'
+const RECIPE_URL = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${api_id}&app_key=${api_key}&mealType={SearchMealValue}`;
+const LS_FAVORITES = "Favorites-List"; // This is used to set/get the list of favorites localStorage item
+
+// Global Variables
+// DOM Elements
+// Meals Search HTML Elements
+var mealBreakfast = document.querySelector('#meal-breakfast')
 var mealLunch = document.querySelector('#meal-lunch')
 var mealDinner = document.querySelector('#meal-dinner')
-var api_id = '3f79b5d7'
-var api_key = '81dbb6cafe543467792c934f5e6b64ca'
 var searchMeal = document.querySelector('#meal-search')
 var searchMealForm = document.getElementById("meal-search-form");
+var recipesFormBtn = document.getElementById("meal-results-submit")
 var mealResultsDiv = document.getElementById("meal-results");
+// Cocktails Search HTML Elements
+var searchForm = document.querySelector('#search-form');
+var cocktailsFormBtn = document.getElementById("results-submit")
+var randomBtn = document.querySelector("#random-button");
+var resultsDiv = document.querySelector('#results');
+// Favorites HTML element
+var favoritesListEl = document.getElementById("favorites-list");
+var favoritesMealsEl = document.getElementById("favorites-meals");
+var favoritesCocktailsEl = document.getElementById("favorites-cocktails");
+var openModalBtn = document.getElementById("favorites-button");
 
-var RECIPE_URL = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${api_id}&app_key=${api_key}&mealType={SearchMealValue}`;
-
-// first api for meals BASE URL : GET https://api.edamam.com/api/recipes/
-
-
-// global variables?
-
-var recipeName;
-var recipeObj = [];
-var cocktailName;
-
-var cocktailObj = [];
-
-// use variable object to pull localstrorage on page?
-
-//define the function for recipe return
-
-function getUrl() {
-  // RECIPE_URL += '&app_id=' + api_id;
-  // RECIPE_URL += '&app_key=' + api_key;
-
-  // if (searchMeal.value === "Breakfast") {
-  //   RECIPE_URL += '&mealType=Breakfast';
-  // }
-  // else if (searchMeal.value === "Breakfast") {
-  //   RECIPE_URL += '&mealType=Lunch';
-  // }
-  // else if (searchMeal.value === "Breakfast") {
-  //   RECIPE_URL += '&mealType=Dinner';
-  // }
-
-  // RECIPE_URL += "&mealType=" + searchMeal.value;
-  return RECIPE_URL.replace("{SearchMealValue}", searchMeal.value);
-}
-
-function fetchMeal() {
-  var recipeUrl = getUrl();
-  console.log(recipeUrl)
-  fetch(recipeUrl, {cache: "force-cache"})
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-
-      // get the array of recipes from response (hits)
-      var mealResults = data.hits;
-
-      mealResultsDiv.innerHTML = '';
-
-      const list = document.createElement('ul');
-
-      for (const meal of mealResults) {
-        const listItem = document.createElement('li');
-
-        const cocktailLink = document.createElement('span');
-        cocktailLink.textContent = meal.recipe.label;
-
-        var labelEl = document.createElement("label");
-
-        var checkboxEl = document.createElement("input");
-        checkboxEl.setAttribute("type", "checkbox");
-
-        labelEl.append(checkboxEl);
-
-        labelEl.appendChild(cocktailLink);
-
-        listItem.append(labelEl);
-
-        list.appendChild(listItem);
-      }
-
-      mealResultsDiv.appendChild(list);
-      mealResultsDiv.parentElement.classList.remove("hide");
-    });
-}
-
+// Event Listeners
 searchMealForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -91,14 +33,12 @@ searchMealForm.addEventListener("submit", function (event) {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  var elems = document.querySelectorAll('select');
-  var instances = M.FormSelect.init(elems);
-});
+  var selectEls = document.querySelectorAll('select');
+  var selectInstances = M.FormSelect.init(selectEls);
 
-var recipes = document.getElementById("recipes-results")
-var cocktails = document.getElementById("cocktails-results")
-var recipesFormBtn = document.getElementById("meal-results-submit")
-var cocktailsFormBtn = document.getElementById("results-submit")
+  var hamburgerBtn = document.querySelectorAll('.sidenav');
+  var hamburgerInstance = M.Sidenav.init(hamburgerBtn);
+});
 
 recipesFormBtn.addEventListener("click", function (event) {
   event.preventDefault();
@@ -110,6 +50,7 @@ recipesFormBtn.addEventListener("click", function (event) {
 
     saveFavorite(nextSpanSibling.textContent, "meal");
 
+    recipesCheckboxes[i].checked = false;
   }
 });
 
@@ -124,17 +65,104 @@ cocktailsFormBtn.addEventListener("click", function (event) {
 
     saveFavorite(nextSpanSibling.textContent, "cocktail");
 
+    cocktailsCheckboxes[i].checked = false;
   }
 });
 
-// This is used to set/get the list of favorites localStorage item
-var LS_FAVORITES = "Favorites-List";
+// Favorites UL click handler - button to delete fav item
+favoritesListEl.addEventListener("click", function (event) {
+  event.preventDefault();
+  event.stopPropagation();
 
-// Favorites HTML element
-var favoritesListEl = document.getElementById("favorites-list");
-var favoritesMealsEl = document.getElementById("favorites-meals");
-var favoritesCocktailsEl = document.getElementById("favorites-cocktails");
+  // Verify the element clicked is a <button>
+  if (event.target.tagName === "BUTTON") {
 
+    var parentNode = event.target.parentNode;
+    var favoriteIndex = parentNode.getAttribute("data-fav-idx");
+
+    // Delete item from favorites
+    deleteFavorite(favoriteIndex);
+    loadFavorites();
+  }
+});
+
+// Display favorites modal when Favorites navbar link is clicked
+openModalBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  // Initialize modal
+  var favModal = document.getElementById("modal-favorites");
+  var modalInstance = M.Modal.init(favModal);
+
+  // Initialize collapsible list
+  var favCollapsible = document.querySelectorAll('.collapsible.expandable');
+  var collapsibleInstance = M.Collapsible.init(favCollapsible, {
+    accordion: false
+  });
+
+  loadFavorites();
+  modalInstance.open();
+});
+
+searchForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const ingredientsInput = document.querySelector('#ingredients');
+  // Create an array of ingredients from comma separated list entered in search box
+  const ingredients = ingredientsInput.value.split(',').map((ingredient) => ingredient.trim());
+  searchCocktailsByIngredients(ingredients).then((results) => {
+    displayResults(results);
+  });
+});
+
+randomBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  getRandomCocktail().then((results) => {
+    displayResults(results);
+  });
+
+});
+
+function fetchMeal() {
+  var recipeUrl = RECIPE_URL.replace("{SearchMealValue}", searchMeal.value);
+  
+  fetch(recipeUrl, { cache: "force-cache" })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+
+      // get the array of recipes from response (hits)
+      var mealResults = data.hits;
+
+      mealResultsDiv.innerHTML = '';
+
+      const list = document.createElement('ul');
+
+      for (const meal of mealResults) {
+        const listItem = document.createElement('li');
+        var labelEl = document.createElement("label");
+
+        labelEl.classList.add("black-text")
+        
+        var checkboxEl = document.createElement("input");
+        checkboxEl.setAttribute("type", "checkbox");
+
+        const mealName = document.createElement('span');
+        mealName.textContent = meal.recipe.label;
+
+        labelEl.append(checkboxEl);
+        labelEl.appendChild(mealName);
+
+        listItem.append(labelEl);
+
+        list.appendChild(listItem);
+      }
+
+      mealResultsDiv.appendChild(list);
+      mealResultsDiv.parentElement.classList.remove("hide");
+    });
+}
 
 // Retrieve list of favorites from LocalStorage and create HTML
 function loadFavorites() {
@@ -146,17 +174,27 @@ function loadFavorites() {
   // Retrieve array of favorites from localStorage
   var listFavorites = JSON.parse(localStorage.getItem(LS_FAVORITES));
 
+  // Get message elemenet inside fav modal, add/remove "hide" class below depending on number of faves saved
+  var modalHelperMsg = document.getElementById("fav-helper")
+
   // Check if list of favorites exists or is empty
   // If array is null, then save an empty array string to localStorage and stop function execution
   // If array is empty, stop function execution
   if (listFavorites === null) {
     listFavorites = [];
     localStorage.setItem(LS_FAVORITES, JSON.stringify(listFavorites));
+
+    modalHelperMsg.classList.remove("hide");
+
     return;
   }
   else if (listFavorites.length === 0) {
+    modalHelperMsg.classList.remove("hide");
+    
     return;
   }
+
+  modalHelperMsg.classList.add("hide");
 
   // Loop through list of favorites and create individual HTML elements for each
   for (var i = 0; i < listFavorites.length; i++) {
@@ -203,54 +241,15 @@ function removeAllChildNodes(parent) {
 
 }
 
-// Favorites UL click handler
-favoritesListEl.addEventListener("click", function (event) {
-  event.preventDefault();
-  event.stopPropagation();
-
-  // Verify the element clicked is a <button>
-  if (event.target.tagName === "BUTTON") {
-    // Remove the button's parent element
-    // event.target.parentNode.remove();
-
-    var parentNode = event.target.parentNode;
-    var favoriteIndex = parentNode.getAttribute("data-fav-idx");
-
-    deleteFavorite(favoriteIndex);
-    loadFavorites();
-  }
-});
-
-
-
-// Open modal sample
-var openModalBtn = document.getElementById("favorites-button");
-openModalBtn.addEventListener("click", function (event) {
-  event.preventDefault();
-
-  // Initialize modal
-  var favModal = document.getElementById("modal-favorites");
-  var modalInstance = M.Modal.init(favModal);
-
-  // Initialize collapsible list
-  var favCollapsible = document.querySelectorAll('.collapsible.expandable');
-  var collapsibleInstance = M.Collapsible.init(favCollapsible, {
-    accordion: false
-  });
-
-  loadFavorites();
-  modalInstance.open();
-});
-
 // Search For a cocktail by name
 async function searchCocktails(cocktailName) {
   const apiKey = "1";
   const endpoint = `https://www.thecocktaildb.com/api/json/v1/${apiKey}/search.php?s=${cocktailName}`;
-  console.log(endpoint)
+  
   try {
     const response = await fetch(endpoint);
     const data = await response.json();
-    console.log(data)
+    
     return data;
   } catch (error) {
     console.log(error);
@@ -283,65 +282,33 @@ async function searchCocktailsByIngredients(ingredients) {
       console.log(error);
     }
   }
-  console.log(searchResults)
+  
   return searchResults;
 }
-searchCocktailsByIngredients(["gin", "vodka", "tequila", "rum", "whiskey", "brandy"]).then((results) => {
-  console.log(results);
-});
-var searchForm = document.querySelector('#search-form');
-var randomBtn = document.querySelector("#random-button");
-var resultsDiv = document.querySelector('#results');
-
-searchForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const ingredientsInput = document.querySelector('#ingredients');
-  // Create an array of ingredients from comma separated list entered in search box
-  const ingredients = ingredientsInput.value.split(',').map((ingredient) => ingredient.trim());
-  searchCocktailsByIngredients(ingredients).then((results) => {
-    displayResults(results);
-  });
-});
-
-randomBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-
-  const ingredients = ["Random"]
-  getRandomCocktail(ingredients).then((results) => {
-    displayResults(results);
-  });
-
-});
 
 // display search results
 function displayResults(results) {
   resultsDiv.innerHTML = '';
 
-  const title = document.createElement('h2');
-  const ingredientsInput = document.querySelector('#ingredients');
-  title.textContent = ingredientsInput.value + " Cocktail";
-  resultsDiv.appendChild(title);
-
-  const cocktails = results[0].drinks;
+  const cocktails = results[0].drinks.splice(0, 20);
   const list = document.createElement('ul');
 
-  (cocktails.length > 1) ? title.textContent += "s" : title.textContent += ""
 
   for (const cocktail of cocktails) {
     const listItem = document.createElement('li');
 
-    const cocktailLink = document.createElement('span');
-    cocktailLink.textContent = cocktail.strDrink;
-    // cocktailLink.href = `/cocktail/${cocktail .idDrink}`;
-
     var labelEl = document.createElement("label");
+
+    labelEl.classList.add("black-text")
 
     var checkboxEl = document.createElement("input");
     checkboxEl.setAttribute("type", "checkbox");
+    
+    const cocktailName = document.createElement('span');
+    cocktailName.textContent = cocktail.strDrink;
 
     labelEl.append(checkboxEl);
-
-    labelEl.appendChild(cocktailLink);
+    labelEl.appendChild(cocktailName);
 
     listItem.append(labelEl);
 
