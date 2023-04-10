@@ -84,8 +84,10 @@ To increase the accuracy and pairing of the generated recommendations and add a 
 
 ## Screenshots
 
-![alt text](./README-assets/1.png)
+![Meals Cocktails Home](./README-assets/meals-cocktails-01.png)
 
-![alt text](./README-assets/1.png)
+![Meals Cocktails Search](./README-assets/meals-cocktails-02.png)
 
-![alt text](./README-assets/1.png)
+![Meals Cocktails Search](./README-assets/meals-cocktails-03.png)
+
+![Meals Cocktails Favorites](./README-assets/meals-cocktails-04.png)
