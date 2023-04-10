@@ -33,3 +33,13 @@ h1 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+#results-submit {
+    background-color: teal; /* teal */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; 
+}
