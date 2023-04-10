@@ -44,7 +44,7 @@ Use a random recipe and cocktail generator to search and save your favorites and
 ```
 AS A food and drink connoisseur
 I WANT to be able to find food + cocktail recommendations based on the meal type and alcohol type selected in a search
-SO THAT I can utilize my current inventory and save the ideas for quick references.
+SO THAT I can save the ideas for quick references.
 ```
 
 ## Acceptance Criteria
