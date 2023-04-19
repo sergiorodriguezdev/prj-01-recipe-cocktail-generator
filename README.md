@@ -1,5 +1,5 @@
 # Recipe + Cocktail Generator
-# *Food(d) and Bar*
+# *Foo(d) and Bar*
 
 ## Description
 
